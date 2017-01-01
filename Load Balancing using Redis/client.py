@@ -6,7 +6,6 @@ server = "0.0.0.0:5003/v1/expenses/1"
 s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 request = "GET / HTTP/1.1\nHost: "+server+"\n\n"
 
-
 s.connect((host,port))
 
 s.send("hello")
