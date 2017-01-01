@@ -1,4 +1,4 @@
-# Expense Management System (portionWise)
+# Expense Management System
 Uses
  - Circuit Breaker
  - Spyne
