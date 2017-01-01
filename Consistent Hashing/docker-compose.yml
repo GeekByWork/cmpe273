@@ -1,0 +1,56 @@
+web1:
+  build: .
+  command: python /code/app/app.py
+  ports:
+   - "5001:5000"
+  volumes:
+   - .:/code
+  links:
+   - db1
+
+web2:
+  build: .
+  command: python /code/app/app.py
+  ports:
+   - "5002:5000"
+  volumes:
+   - .:/code
+  links:
+   - db2
+
+web3:
+  build: .
+  command: python /code/app/app.py
+  ports:
+   - "5003:5000"
+  volumes:
+   - .:/code
+  links:
+   - db3
+
+db1:
+  hostname: mysqlserver
+  image: mysql
+  environment:
+     MYSQL_ROOT_PASSWORD: mysql
+     MYSQL_DATABASE: test
+  volumes:
+    - ./database1:/var/lib/mysql
+
+db2:
+  hostname: mysqlserver
+  image: mysql
+  environment:
+     MYSQL_ROOT_PASSWORD: mysql
+     MYSQL_DATABASE: test
+  volumes:
+  - ./database2:/var/lib/mysql
+
+db3:
+  hostname: mysqlserver
+  image: mysql
+  environment:
+     MYSQL_ROOT_PASSWORD: mysql
+     MYSQL_DATABASE: test
+  volumes:
+  - ./database3:/var/lib/mysql
